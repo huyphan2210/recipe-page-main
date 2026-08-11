@@ -1,0 +1,223 @@
+@font-face {
+  font-family: "Outfit";
+  src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "YoungSerif-Regular";
+  src: url("./assets/fonts/young-serif/YoungSerif-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --brown-800: hsl(14, 45%, 36%);
+
+  --rose-800: hsl(332, 51%, 32%);
+  --rose-50: hsl(330, 100%, 98%);
+
+  --stone-100: hsl(30, 54%, 90%);
+  --stone-150: hsl(30, 18%, 87%);
+  --stone-600: hsl(30, 10%, 34%);
+  --stone-900: hsl(24, 5%, 18%);
+
+  --white: hsl(0, 0%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.3s ease-in-out;
+  list-style: none;
+  &::before,
+  &::after {
+    box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+  }
+}
+
+ul,
+ol {
+  li {
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+ul {
+  li {
+    list-style: inside;
+    list-style-type: disc;
+
+    &::marker {
+      color: var(--brown-800);
+      font-weight: 600;
+    }
+
+    b {
+      font-weight: 600;
+    }
+  }
+}
+
+ol {
+  li {
+    display: flex;
+    gap: 1rem;
+
+    span {
+      &:first-child {
+        width: 7px;
+        color: var(--brown-800);
+        font-weight: 600;
+      }
+
+      b {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--stone-100);
+  display: flex;
+
+  .card {
+    --card-border-radius: clamp(0rem, -0.842rem + 4.211vw, 1rem);
+    --card-max-width: 43.75rem;
+    --card-padding: clamp(1rem, 0.85rem + 0.75vw, 1.75rem);
+
+    background-color: var(--white);
+    border-radius: var(--card-border-radius);
+    max-width: var(--card-max-width);
+    margin: auto;
+    margin-block: clamp(0rem, -2.869rem + 6.557vw, 5rem);
+    padding-inline: var(--card-padding);
+    padding-block: 0;
+
+    .card-figure {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+
+      .card-figure-image {
+        max-width: calc(var(--card-max-width) - var(--card-padding) * 2);
+        width: calc(100% + var(--card-padding) * 2);
+        vertical-align: top;
+        border-radius: var(--card-border-radius);
+      }
+    }
+
+    .card-heading {
+      font-family: "YoungSerif-Regular", serif;
+      font-weight: 400;
+      font-size: clamp(2.4rem, 2.3rem + 0.5vw, 2.9rem);
+      color: var(--stone-900);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .card-description {
+      margin-bottom: 1.5rem;
+    }
+
+    .text {
+      font-family: "Outfit", serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--stone-600);
+      line-height: 1.5;
+    }
+
+    .section {
+      margin-bottom: clamp(1.25rem, 0.714rem + 2.679vw, 2rem);
+      padding-bottom: clamp(1.25rem, 0.714rem + 2.679vw, 2rem);
+      border-bottom: 1px solid var(--stone-150);
+
+      &:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .heading {
+        font-size: clamp(1.75rem, 1.571rem + 0.893vw, 2rem);
+        font-family: "YoungSerif-Regular", serif;
+        font-weight: 400;
+        color: var(--brown-800);
+        margin-bottom: clamp(1rem, 0.821rem + 0.893vw, 1.25rem);
+      }
+
+      &.section--prep {
+        border-bottom: none;
+        padding-bottom: 0;
+        color: var(--rose-800);
+        background-color: var(--rose-50);
+        padding: var(--card-padding);
+        border-radius: 1rem;
+
+        .prep-heading {
+          font-size: clamp(1.25rem, 1.071rem + 0.893vw, 1.5rem);
+          font-family: "Outfit", serif;
+          font-weight: 700;
+          margin-bottom: clamp(1rem, 0.821rem + 0.893vw, 1.25rem);
+        }
+
+        ::marker {
+          color: var(--rose-800);
+        }
+      }
+    }
+
+    .nutrition-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+
+      tr {
+        border-bottom: 1px solid var(--stone-150);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        td {
+          padding-block: 0.75rem;
+          padding-left: var(--card-padding);
+          font-size: 1rem;
+          line-height: 1.5;
+          width: 50%;
+
+          &:nth-child(2) {
+            color: var(--brown-800);
+            font-weight: 700;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .attribution {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 40.25rem) {
+  body {
+    .card {
+      padding-block: var(--card-padding);
+    }
+  }
+}
